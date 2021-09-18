@@ -8,6 +8,6 @@ import java.io.File;
 @Data
 @AllArgsConstructor
 public class FilePath {
-    public File txt;
     public File hkx;
+    public File txt;
 }

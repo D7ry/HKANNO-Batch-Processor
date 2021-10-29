@@ -7,4 +7,5 @@ public class Const {
     public static String ATTACK_STOP = "%s attackStop";
     public static String FIX_TEMPLATE = "%s SkySA_AttackWinEnd";
     public static String SKYSA_COMBO_ANNO = "%s attackStart";
+    public static String SKYSA_HVY_COMBO_ANNO = "%s atttackPowerStartForward";
 }

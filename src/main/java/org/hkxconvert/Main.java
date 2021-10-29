@@ -23,18 +23,21 @@ public class Main {
         List<FilePath> filePaths = new ArrayList<>();
         FixManager fixManager;
         while (true) {
-            if (input.next().toLowerCase(Locale.ROOT).equals("l")) {
+            String option = input.next().toLowerCase(Locale.ROOT);
+            if (option.equals("l")) {
                 System.out.println("annotating light combos");
                 fixManager = new EnemyBrutalizer(root, filePaths);
                 break;
-            } else if (input.next().toLowerCase(Locale.ROOT).equals("H")) {
+            } else if (option.equals("h")) {
                 System.out.println("annotating light to heavy combos");
                 fixManager = new HvyComboInitiater(root, filePaths);
+                break;
             }
         }
         fixManager.dumpAnno();
         fixManager.fixAnno();
         fixManager.updateAnno();
+        System.out.println("All fixes complete.");
     }
 
 }

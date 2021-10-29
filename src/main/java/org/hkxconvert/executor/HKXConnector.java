@@ -8,13 +8,17 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.List;
 
-import static org.hkxconvert.Const.SKYSA_COMBO_ANNO;
 import static org.hkxconvert.Utils.addFrame;
 
 public class HKXConnector extends FixExecutor {
 
     public HKXConnector(File txt, RandomAccessFile reader) {
         super(txt, reader);
+    }
+
+    public HKXConnector(File txt, RandomAccessFile reader, String fixTemplate) {
+        super(txt, reader);
+        _fixTemplate = fixTemplate;
     }
 
     /**
@@ -26,7 +30,7 @@ public class HKXConnector extends FixExecutor {
             long pointer = getReader().getFilePointer();
             if (line.contains("SkySA_AttackWinStart")) {
                 String attackStartFrame = line.split(" ")[0];
-                String attackStartAnno = String.format(SKYSA_COMBO_ANNO, addFrame(attackStartFrame));
+                String attackStartAnno = String.format(_fixTemplate, addFrame(attackStartFrame));
                 System.out.println(attackStartAnno);
                 addAnno(attackStartAnno, reader);
                 setNotFix(false);
@@ -36,5 +40,6 @@ public class HKXConnector extends FixExecutor {
         return isNotFix();
     }
 
+    private String _fixTemplate;
 
 }

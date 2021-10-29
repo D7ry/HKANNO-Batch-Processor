@@ -10,6 +10,9 @@ import java.io.RandomAccessFile;
 import java.util.List;
 import java.util.ListIterator;
 
+import static org.hkxconvert.Const.SKYSA_COMBO_ANNO;
+
+
 public class EnemyBrutalizer extends FixManager {
 
     public EnemyBrutalizer(File root, List<FilePath> filePaths) {
@@ -23,7 +26,7 @@ public class EnemyBrutalizer extends FixManager {
             File txt = li.next().txt;
             FixExecutor fixExecutor;
             try (RandomAccessFile reader = new RandomAccessFile(txt, "rw")) {
-                fixExecutor = new HKXConnector(txt, reader);
+                fixExecutor = new HKXConnector(txt, reader, SKYSA_COMBO_ANNO);
                 if (fixExecutor.fix(getFilePaths()))
                     li.remove();
             } catch (IOException e) {

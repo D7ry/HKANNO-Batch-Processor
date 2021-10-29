@@ -21,13 +21,11 @@ public class NormalAttackFix extends FixExecutor {
     public boolean fix(List<FilePath> filePaths) throws IOException {
         while ((line = reader.readLine()) != null) {
             long pointer = getReader().getFilePointer();
-
             if (line.contains("SkySA_AttackWinEnd")) {
                 temp = line;
                 tempPointer = pointer;
                 tempSize = line.length();
             }
-
             if ((line.contains("Stop") || line.contains("stop")) && temp != null) {
                 String attackStopFrame = line.split(" ")[0];
                 reader.seek(pointer - line.length() - 2);

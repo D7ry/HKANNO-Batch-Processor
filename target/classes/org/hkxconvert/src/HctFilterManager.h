@@ -1,0 +1,2 @@
+
+int ExecuteHctFilterManager(char *ifile);

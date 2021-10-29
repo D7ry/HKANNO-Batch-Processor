@@ -1,6 +1,6 @@
 package org.hkxconvert;
 
-import org.hkxconvert.manager.AbrFixManager;
+import org.hkxconvert.manager.EnemyBrutalizer;
 import org.hkxconvert.manager.FixManager;
 
 import java.io.File;
@@ -14,8 +14,7 @@ public class Main {
     public static void main(String[] args) {
         File root = new File(PATH);
         List<FilePath> filePaths = new ArrayList<>();
-        FixManager fixManager = new AbrFixManager(root, filePaths);
-
+        FixManager fixManager = new EnemyBrutalizer(root, filePaths);
         fixManager.dumpAnno();
         fixManager.fixAnno();
         fixManager.updateAnno();

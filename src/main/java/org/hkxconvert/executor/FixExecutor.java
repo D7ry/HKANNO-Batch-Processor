@@ -24,4 +24,17 @@ public abstract class FixExecutor {
     }
 
     public abstract boolean fix(List<FilePath> filePaths) throws IOException;
+
+    /**
+     * append ANNO to the end of the file
+     */
+    public void addAnno(String anno, RandomAccessFile raf) {
+        try (RandomAccessFile fileWriter = raf) {
+            fileWriter.seek(fileWriter.length());
+            fileWriter.writeBytes(anno);
+        } catch (IOException e) {
+            System.out.println("Error appending File.");
+            e.printStackTrace();
+        }
+    }
 }

@@ -19,6 +19,7 @@ public abstract class FixManager {
     private File root;
     private List<FilePath> filePaths;
 
+
     /**
      * 批量导出注解TXT文件
      */
@@ -70,7 +71,7 @@ public abstract class FixManager {
                 String command = String.format(UPDATE_COMMAND_TEMPLATE, txt.getPath(), hkx.getPath());
 
                 if (Runtime.getRuntime().exec(command).waitFor() == 0) {
-                    System.out.println(hkx.getPath() + "更新成功！");
+                    System.out.println(hkx.getPath() + " Process complete!");
                 }
             } catch (IOException | InterruptedException e) {
                 System.out.println(e.getMessage());

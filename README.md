@@ -7,4 +7,4 @@ How to use:
 
 2.put whatever you want to convert into D:\hkxconvert
 
-3.run the main program, and it should automatically add attackStart annotations.
+3.run the main program. type in H to connect all hkxs to heavy attacks; type in l to connect all hkxs to light attacks.

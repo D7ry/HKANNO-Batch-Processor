@@ -1,5 +1,5 @@
 # Skysa Batch Annotator
-convenience tool to batch edit hkx, untested. Now only supports adding attackStart annos for new Skysa.
+convenience tool to batch edit hkx, untested. Now only supports adding annos for Skysa.
 
 How to use:
 

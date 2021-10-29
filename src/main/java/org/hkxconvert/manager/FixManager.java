@@ -28,7 +28,11 @@ public abstract class FixManager {
     }
 
     public static void RecDir(File root, List<FilePath> filePaths) {
-        File[] fileList = Objects.requireNonNull(root.listFiles());
+        if (root.listFiles() == null) {
+            System.out.println("Error: No valid hkx found in hkxconvert folder. Terminating process.");
+            System.exit(10);
+        }
+        File[] fileList = root.listFiles();
         for (File file : fileList) {
             if (file.isDirectory()) {
                 RecDir(file, filePaths);

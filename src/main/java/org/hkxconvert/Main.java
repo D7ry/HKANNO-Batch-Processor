@@ -25,11 +25,11 @@ public class Main {
         while (true) {
             String option = input.next().toLowerCase(Locale.ROOT);
             if (option.equals("l")) {
-                System.out.println("annotating light combos");
+                System.out.println("start annotating light combos");
                 fixManager = new EnemyBrutalizer(root, filePaths);
                 break;
             } else if (option.equals("h")) {
-                System.out.println("annotating light to heavy combos");
+                System.out.println("start annotating light to heavy combos");
                 fixManager = new HvyComboInitiater(root, filePaths);
                 break;
             }

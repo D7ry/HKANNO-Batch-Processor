@@ -17,15 +17,15 @@ import static org.hkxconvert.Const.ONE_FRAME;
  *
  */
 
-public class annoInserter extends ListFixExecutor {
+public class annoInserterRemover extends ListFixExecutor {
 
     /**
      * @param txt the txt file output from HKANNO.
-     * @param line the line before/after which the annotation is added.
+     * @param line the line on which to perform action.
      * @param template the string to be formatted as a new annotation to insert.
      * @throws FileNotFoundException
      */
-    public annoInserter(File txt, String line, String template) throws FileNotFoundException {
+    public annoInserterRemover(File txt, String line, String template) throws FileNotFoundException {
         super(txt, line, template);
     }
 
@@ -35,7 +35,7 @@ public class annoInserter extends ListFixExecutor {
     }
 
     /**read through the list and add lines at corresponding positions */
-    public void readerProcess(double frame, boolean insertAfter) {
+    private void readerProcess(double frame, boolean insertAfter) {
         while (_reader.hasNextLine()) {
             String line = _reader.nextLine();
             _lines.add(line);
@@ -55,6 +55,28 @@ public class annoInserter extends ListFixExecutor {
                 _fixed = true;
             }
         }
+    }
+    /**what actuallys happens in remover */
+    private void removerProcess() {
+        while(_reader.hasNextLine()) {
+            String line = _reader.nextLine();
+            if (!line.contains(_line)) {
+                _lines.add(line);
+            } else {
+                System.out.println("removing line: " + line);
+                _fixed = true;
+            }
+        }
+    }
+
+    /**
+     * remove lines containing TEMPLATE.
+     */
+    public boolean remove() throws FileNotFoundException {
+        removerProcess();
+        _reader.close();
+        writeAnno();
+        return _fixed;
     }
 
     /** insert TEMPLATE after the _LINE by default frame.

@@ -1,0 +1,32 @@
+package org.hkxconvert.manager;
+
+import org.hkxconvert.FilePath;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+import static org.hkxconvert.Const.DUMP_COMMAND_TEMPLATE;
+
+public class SimpleUpdater extends FixManager{
+
+    public SimpleUpdater(File root, List<FilePath> filePaths) {
+        super(root, filePaths);
+    }
+
+    @Override
+    public void dumpAnno() {
+        RecDir(root, filePaths);
+    }
+
+    @Override
+    public void fixAnno() throws IOException {
+    }
+
+    @Override
+    void createAnnoTextList(FilePath filePath, List<FilePath> filePaths) {
+            String command = String.format(filePath.txt.getPath(), filePath.hkx.getPath());
+                filePaths.add(filePath);
+    }
+
+}

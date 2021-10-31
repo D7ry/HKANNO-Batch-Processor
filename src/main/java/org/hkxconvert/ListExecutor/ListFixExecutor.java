@@ -30,8 +30,7 @@ public abstract class ListFixExecutor {
         _template = template;
         _lines = new ArrayList<String>();
         _fixed = false;
-        System.out.println("");
-        System.out.println("start fixing: " + _txt.getName());
+        System.out.println("\nstart fixing: " + _txt.getName());
     }
 
     public abstract boolean fix(List<FilePath> filePaths) throws IOException;

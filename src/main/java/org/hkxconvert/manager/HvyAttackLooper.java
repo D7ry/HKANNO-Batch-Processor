@@ -1,20 +1,13 @@
 package org.hkxconvert.manager;
 
 import org.hkxconvert.FilePath;
-import org.hkxconvert.ListExecutor.annoInserter;
-import org.hkxconvert.executor.FixExecutor;
-import org.hkxconvert.executor.HKXConnector;
 import org.hkxconvert.ListExecutor.ListFixExecutor;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.RandomAccessFile;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Scanner;
-
-import static org.hkxconvert.Const.SKYSA_HVY_COMBO_ANNO;
-import static org.hkxconvert.Const.HIT_FRAME;
 
 public class HvyAttackLooper extends FixManager{
 

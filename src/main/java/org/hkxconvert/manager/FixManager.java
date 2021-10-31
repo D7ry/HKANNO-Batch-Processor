@@ -20,20 +20,19 @@ import static org.hkxconvert.Const.UPDATE_COMMAND_TEMPLATE;
 @AllArgsConstructor
 public abstract class FixManager {
 
-    private File root;
-    private List<FilePath> filePaths;
-
-
+    public File root;
+    public List<FilePath> filePaths;
     /**
      * 批量导出注解TXT文件
      */
     public void dumpAnno() {
+        System.out.println("\ndumping annos");
         RecDir(root, filePaths);
+        System.out.println("dump complete");
     }
 
-    public static void RecDir(File root, List<FilePath> filePaths) {
+    public void RecDir(File root, List<FilePath> filePaths) {
         if (root.listFiles() == null) {
-            System.out.println("Error: No valid hkx found in hkxconvert folder. Terminating process.");
             System.exit(10);
         }
         File[] fileList = root.listFiles();
@@ -50,12 +49,12 @@ public abstract class FixManager {
         }
     }
 
-    private static void createAnnoTextList(FilePath filePath, List<FilePath> filePaths) {
+    void createAnnoTextList(FilePath filePath, List<FilePath> filePaths) {
         try {
             String command = String.format(DUMP_COMMAND_TEMPLATE, filePath.txt.getPath(), filePath.hkx.getPath());
             if (Runtime.getRuntime().exec(command).waitFor() == 0) {
                 filePaths.add(filePath);
-                System.out.println("Anno exported to: " + filePaths.get(filePaths.size() - 1).txt.getPath());
+                System.out.println("anno dumped to: " + filePaths.get(filePaths.size() - 1).txt.getPath());
             }
         } catch (IOException | InterruptedException e) {
             System.out.println(e.getMessage());
@@ -71,7 +70,7 @@ public abstract class FixManager {
      * update fixed annos to txt files.
      */
     public void updateAnno() {
-        System.out.println();
+        System.out.println("\nupdating annos");
         for (FilePath file : filePaths) {
             try {
                 File txt = file.txt;
@@ -84,5 +83,6 @@ public abstract class FixManager {
                 System.out.println(e.getMessage());
             }
         }
+        System.out.println("update complete");
     }
 }

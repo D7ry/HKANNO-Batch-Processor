@@ -14,38 +14,46 @@ import static org.hkxconvert.Const.HKXPATH;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        Scanner input = new Scanner(System.in);
-        System.out.println("Choose your operation, type help for help");
-        File root = new File(HKXPATH);
-        List<FilePath> filePaths = new ArrayList<>();
-        FixManager fixManager;
-        while (true) {
-            String option = input.next().toLowerCase(Locale.ROOT);
-            if (option.equals("l")) {
-                fixManager = new EnemyBrutalizer(root, filePaths);
-                break;
-            } else if (option.equals("h")) {
-                fixManager = new EnemyBrutalizerHvy(root, filePaths);
-                break;
-            } else if (option.equals("c")) {
-                fixManager = new HvyAttackLooper(root, filePaths);
-                break;
-            } else if (option.equals("d")) {
-                fixManager = new SimpleDumper(root, filePaths);
-                fixManager.dumpAnno();
-                System.out.println("dump complete");
-                System.exit(0);
-            } else if (option.equals("help")) {
-                System.out.println("L for light attack combo");
-                System.out.println("H for heavy attack combo");
-                System.out.println("C for heavy attack looper(incomplete)");
-                System.out.println("D to dump all annotations");
+        while (true){
+            Scanner input = new Scanner(System.in);
+            System.out.println("input your operation, input help for help");
+            File root = new File(HKXPATH);
+            List<FilePath> filePaths = new ArrayList<>();
+            FixManager fixManager;
+            while (true) {
+                String option = input.next().toLowerCase(Locale.ROOT);
+                if (option.equals("l")) {
+                    fixManager = new EnemyBrutalizer(root, filePaths);
+                    break;
+                } else if (option.equals("h")) {
+                    fixManager = new EnemyBrutalizerHvy(root, filePaths);
+                    break;
+                } else if (option.equals("c")) {
+                    fixManager = new HvyAttackLooper(root, filePaths);
+                    break;
+                } else if (option.equals("d")) {
+                    fixManager = new SimpleDumper(root, filePaths);
+                    break;
+                } else if (option.equals("u")) {
+                    fixManager = new SimpleUpdater(root, filePaths);
+                    break;
+                } else if (option.equals("r")) {
+                    fixManager = new SimpleRemover(root, filePaths);
+                    break;
+                } else if (option.equals("help")) {
+                    System.out.println("L for light attack combo chaining");
+                    System.out.println("H for heavy attack combo chaining");
+                    System.out.println("C for heavy attack looper(incomplete)");
+                    System.out.println("R to remove all annotations with keyword");
+                    System.out.println("D to dump all annotations");
+                    System.out.println("U to update all annotations with corresponding names");
+                }
             }
+            fixManager.dumpAnno();
+            fixManager.fixAnno();
+            fixManager.updateAnno();
+            System.out.println("\nAll operations complete, input command to start another operation");
         }
-        fixManager.dumpAnno();
-        fixManager.fixAnno();
-        fixManager.updateAnno();
-        System.out.println("All fixes complete.");
     }
 
 }

@@ -21,6 +21,7 @@ public class EnemyBrutalizer extends FixManager {
 
     public EnemyBrutalizer(File root, List<FilePath> filePaths) {
         super(root, filePaths);
+        System.out.println("start chaining Skysa light combos");
     }
 
     @Override
@@ -28,12 +29,11 @@ public class EnemyBrutalizer extends FixManager {
         ListIterator<FilePath> li = getFilePaths().listIterator();
         while (li.hasNext()) {
             File txt = li.next().txt;
-            annoInserter fixer = new annoInserter(txt, SKYSA_COMBO_ANNO, SKYSA_ATTACKWINSTART);
+            annoInserter fixer = new annoInserter(txt, SKYSA_ATTACKWINSTART, SKYSA_COMBO_ANNO);
             if (fixer.insertAfter()) {
-                li.remove();
+                System.out.println("successfully fixed:" + txt.getName());
             } else {
-                System.out.println("fix failed, ending program");
-                System.exit(11);
+                System.out.println("failed to fix:" + txt.getName());
             }
         }
     }

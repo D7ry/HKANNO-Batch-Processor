@@ -55,7 +55,7 @@ public abstract class FixManager {
             String command = String.format(DUMP_COMMAND_TEMPLATE, filePath.txt.getPath(), filePath.hkx.getPath());
             if (Runtime.getRuntime().exec(command).waitFor() == 0) {
                 filePaths.add(filePath);
-                System.out.println(filePaths.get(filePaths.size() - 1).txt.getPath());
+                System.out.println("Anno exported to: " + filePaths.get(filePaths.size() - 1).txt.getPath());
             }
         } catch (IOException | InterruptedException e) {
             System.out.println(e.getMessage());
@@ -71,13 +71,14 @@ public abstract class FixManager {
      * update fixed annos to txt files.
      */
     public void updateAnno() {
+        System.out.println();
         for (FilePath file : filePaths) {
             try {
                 File txt = file.txt;
                 File hkx = file.hkx;
                 String command = String.format(UPDATE_COMMAND_TEMPLATE, txt.getPath(), hkx.getPath());
+                System.out.println("successfully updated: " + hkx.getName());
                 if (Runtime.getRuntime().exec(command).waitFor() == 0) {
-                    System.out.println(hkx.getPath() + " Process complete!");
                 }
             } catch (IOException | InterruptedException e) {
                 System.out.println(e.getMessage());

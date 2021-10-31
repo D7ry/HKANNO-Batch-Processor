@@ -12,7 +12,7 @@ public class Utils {
         return decimal.setScale(6, DOWN).toString();
     }
 
-    public static String addFrame(String fs, float frame) {
+    public static String addFrame(String fs, double frame) {
         BigDecimal decimal = new BigDecimal(fs);
         decimal = decimal.add(BigDecimal.valueOf(frame));
         return decimal.setScale(6, DOWN).toString();

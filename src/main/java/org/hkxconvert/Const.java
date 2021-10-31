@@ -10,4 +10,5 @@ public class Const {
     public static String SKYSA_COMBO_ANNO = "%s attackStart";
     public static String SKYSA_HVY_COMBO_ANNO = "%s atttackPowerStartForward";
     public static String SKYSA_ATTACKWINSTART = "SkySA_AttackWinStart";
+    public static double ONE_FRAME = 0.000001;
 }

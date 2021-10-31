@@ -1,35 +1,34 @@
 package org.hkxconvert.manager;
 
 import org.hkxconvert.FilePath;
-import org.hkxconvert.executor.FixExecutor;
-import org.hkxconvert.executor.HKXConnector;
+import org.hkxconvert.ListExecutor.annoInserter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.List;
 import java.util.ListIterator;
 
-import static org.hkxconvert.Const.SKYSA_HVY_COMBO_ANNO;
+import static org.hkxconvert.Const.*;
 
 public class HvyComboInitiater extends FixManager {
 
     public HvyComboInitiater(File root, List<FilePath> filePaths) {
         super(root, filePaths);
+        System.out.println("start chaining Skysa light to heavy combos");
     }
 
     @Override
-    public void fixAnno() {
+    public void fixAnno() throws IOException {
         ListIterator<FilePath> li = getFilePaths().listIterator();
         while (li.hasNext()) {
             File txt = li.next().txt;
-            FixExecutor fixExecutor;
-            try (RandomAccessFile reader = new RandomAccessFile(txt, "rw")) {
-                fixExecutor = new HKXConnector(txt, reader, SKYSA_HVY_COMBO_ANNO);
-                if (fixExecutor.fix(getFilePaths()))
-                    li.remove();
-            } catch (IOException e) {
-                e.printStackTrace();
+            annoInserter fixer = new annoInserter(txt, SKYSA_ATTACKWINSTART, SKYSA_HVY_COMBO_ANNO);
+            if (fixer.insertAfter()) {
+                li.remove();
+            } else {
+                System.out.println("failed to fix " + txt.getName());
             }
         }
     }

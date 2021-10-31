@@ -48,10 +48,10 @@ public class Main {
                     System.out.println("L for light attack combo chaining");
                     System.out.println("H for heavy attack combo chaining");
                     System.out.println("C for heavy attack looper(incomplete)");
-                    System.out.println("RM to remove all annotations with keyword");
-                    System.out.println("RP to replace all anotations");
-                    System.out.println("D to dump all annotations");
-                    System.out.println("U to update all annotations with corresponding names");
+                    System.out.println("RM to remove all annotations");
+                    System.out.println("RP to replace all annotations");
+                    System.out.println("D to simply dump all annotations");
+                    System.out.println("U to simply update all annotations");
                 }
             }
             fixManager.dumpAnno();

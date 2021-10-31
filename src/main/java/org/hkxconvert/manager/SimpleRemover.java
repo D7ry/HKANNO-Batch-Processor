@@ -36,7 +36,7 @@ public class SimpleRemover extends FixManager {
                 }
             }
         }
-        System.out.println("Sucessfully removed annos; input Y to keep removing, N to update annos");
+        System.out.println("Sucessfully removed annos; keep removing? [Y/N]");
         String command = input.next().toLowerCase(Locale.ROOT);
         if (command.equals("y")) {
             fixAnno();

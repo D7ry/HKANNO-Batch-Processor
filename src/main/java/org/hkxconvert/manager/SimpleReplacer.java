@@ -35,7 +35,7 @@ public class SimpleReplacer extends FixManager {
                 System.out.println("failed to fix:" + txt.getName());
             }
         }
-        System.out.println("Sucessfully replaced annos; input Y to keep replacing, N to update annos");
+        System.out.println("Sucessfully replaced annos; keep replacing? [Y/N]");
         String command = input.next().toLowerCase(Locale.ROOT);
         if (command.equals("y")) {
             fixAnno();

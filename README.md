@@ -1,4 +1,4 @@
-# Skysa Batch Annotator
+# Skyrim Batch Annotator
 convenience tool to batch edit hkx, untested. Now only supports adding annos for Skysa.
 
 How to use:

@@ -1,4 +1,4 @@
-# Skyrim Batch Annotator
+# HKANNO Batch Annotator
 convenience tool to batch edit hkx files.
 
 How to use:

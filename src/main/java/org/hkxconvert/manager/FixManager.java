@@ -69,7 +69,7 @@ public abstract class FixManager {
     /**
      * update fixed annos to txt files.
      */
-    public void updateAnno() {
+    public void updateAnno() throws IOException {
         System.out.println("\nupdating annos");
         for (FilePath file : filePaths) {
             try {

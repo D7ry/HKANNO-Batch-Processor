@@ -69,6 +69,33 @@ public class annoInserterRemover extends ListFixExecutor {
         }
     }
 
+    /**what actually happens in replacer */
+    private void replacerProcess(String newAnno) {
+        while (_reader.hasNextLine()) {
+            String line = _reader.nextLine();
+            if (line.contains(_line)) {
+                String prevFrame = line.split(" ")[0];
+                String newLine = prevFrame + " " + newAnno;
+                _lines.add(newLine);
+                System.out.println("replaced: " + line);
+                System.out.println("with: " + newLine);
+                _fixed = true;
+            } else {
+                _lines.add(line);
+            }
+        }
+    }
+
+    /**replace lines containing TEMPLATE with NEWANNO
+     *
+     */
+    public boolean replace(String newAnno) throws FileNotFoundException {
+        replacerProcess(newAnno);
+        _reader.close();
+        writeAnno();
+        return _fixed;
+    }
+
     /**
      * remove lines containing TEMPLATE.
      */

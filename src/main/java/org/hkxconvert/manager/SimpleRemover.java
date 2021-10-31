@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Locale;
 import java.util.Scanner;
 
 import static org.hkxconvert.Const.SKYSA_COMBO_ANNO;
@@ -34,6 +35,13 @@ public class SimpleRemover extends FixManager {
                     System.out.println("failed to fix:" + txt.getName());
                 }
             }
+        }
+        System.out.println("Sucessfully removed annos; input Y to keep removing, N to update annos");
+        String command = input.next().toLowerCase(Locale.ROOT);
+        if (command.equals("y")) {
+            fixAnno();
+        } else if (command.equals("n")) {
+            return;
         }
     }
 

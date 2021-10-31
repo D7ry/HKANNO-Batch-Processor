@@ -37,14 +37,19 @@ public class Main {
                 } else if (option.equals("u")) {
                     fixManager = new SimpleUpdater(root, filePaths);
                     break;
-                } else if (option.equals("r")) {
+                } else if (option.equals("rm")) {
                     fixManager = new SimpleRemover(root, filePaths);
                     break;
-                } else if (option.equals("help")) {
+                } else if (option.equals("rp")) {
+                    fixManager = new SimpleReplacer(root, filePaths);
+                    break;
+                }
+                else if (option.equals("help")) {
                     System.out.println("L for light attack combo chaining");
                     System.out.println("H for heavy attack combo chaining");
                     System.out.println("C for heavy attack looper(incomplete)");
-                    System.out.println("R to remove all annotations with keyword");
+                    System.out.println("RM to remove all annotations with keyword");
+                    System.out.println("RP to replace all anotations");
                     System.out.println("D to dump all annotations");
                     System.out.println("U to update all annotations with corresponding names");
                 }

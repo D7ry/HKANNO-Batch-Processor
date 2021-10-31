@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact name="Skysa-Batch-Annotator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Skysa_Batch_Annotator_jar</output-path>
+    <root id="root">
+      <element id="archive" name="Skysa-Batch-Annotator.jar">
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="module-output" name="Skysa-Batch-Annotator" />
+      </element>
+      <element id="directory" name="libs" />
+    </root>
+  </artifact>
+</component>

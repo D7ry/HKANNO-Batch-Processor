@@ -1,0 +1,26 @@
+
+
+Version:	3.14
+CmdLine:	C:\Users\ÃÏ‘œ\Documents\GitHub\Skysa-Batch-Annotator\out\artifacts\Skysa_Batch_Annotator_jar\Batch-Annotator.exe --l4j-debug
+WOW64:		yes
+Working dir:	C:\Users\ÃÏ‘œ\Documents\GitHub\Skysa-Batch-Annotator\out\artifacts\Skysa_Batch_Annotator_jar\.
+Java min ver:	1.008.000
+Java max ver:	
+64-bit search:	SOFTWARE\JavaSoft\Java Runtime Environment...
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8
+Check launcher:	C:\Program Files\Java\jre1.8.0_311\bin\javaw.exe (OK)
+Match:		1.008.000
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_291
+Check launcher:	C:\Program Files\Java\jre1.8.0_291\bin\javaw.exe (OK)
+Match:		1.008.000_291
+Check:		SOFTWARE\JavaSoft\Java Runtime Environment\1.8.0_311
+Check launcher:	C:\Program Files\Java\jre1.8.0_311\bin\javaw.exe (OK)
+Match:		1.008.000_311
+64-bit search:	SOFTWARE\JavaSoft\Java Development Kit...
+64-bit search:	SOFTWARE\JavaSoft\JRE...
+64-bit search:	SOFTWARE\JavaSoft\JDK...
+Runtime used:	1.008.000_311 (64-bit)
+Launcher:	C:\Program Files\Java\jre1.8.0_311\bin\javaw.exe
+Launcher args:	-jar "C:\Users\ÃÏ‘œ\Documents\GitHub\Skysa-Batch-Annotator\out\artifacts\Skysa_Batch_Annotator_jar\Batch-Annotator.exe"
+Args length:	119/32768 chars
+Exit code:	0

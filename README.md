@@ -8,8 +8,9 @@ How to use:
 2.put whatever you want to convert into D:\hkxconvert; create new folder if folder doesn't exist.
 
 3.run the main program. Type help for help.
+
 中文：
-批量注释skysa攻击衔接的工具，目前仅支持添加skysa注释。
+批量注释skysa攻击衔接的工具
 
 使用方法：
 1.下载hkanno64, 将文件放入 D盘的hkanno64-001文件（文件名称必须要完全一致！）。在hkanno64-001文件内，应该直接存放着你解压的hkanno64.exe文件。

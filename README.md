@@ -1,5 +1,5 @@
-# Skysa Batch Annotator
-convenience tool to batch edit hkx, untested. Now only supports adding annos for Skysa.
+# Skyrim Batch Annotator
+convenience tool to batch edit hkx files.
 
 How to use:
 
@@ -7,8 +7,7 @@ How to use:
 
 2.put whatever you want to convert into D:\hkxconvert; create new folder if folder doesn't exist.
 
-3.run the main program. Input h to apply heavy attack annos to all hkx, input l to apply light attack annos.
-
+3.run the main program. Type help for help.
 中文：
 批量注释skysa攻击衔接的工具，目前仅支持添加skysa注释。
 

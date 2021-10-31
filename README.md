@@ -1,4 +1,4 @@
-# HKANNO Batch Annotator
+# HKANNO Batch Processor
 convenience tool to batch edit hkx files.
 
 How to use:

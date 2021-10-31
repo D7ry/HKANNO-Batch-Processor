@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hkxconvert.FilePath;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +13,9 @@ import java.util.Objects;
 import static org.hkxconvert.Const.DUMP_COMMAND_TEMPLATE;
 import static org.hkxconvert.Const.UPDATE_COMMAND_TEMPLATE;
 
+/** manager class used to dump and update anno.
+ *
+ */
 @Data
 @AllArgsConstructor
 public abstract class FixManager {
@@ -49,7 +53,6 @@ public abstract class FixManager {
     private static void createAnnoTextList(FilePath filePath, List<FilePath> filePaths) {
         try {
             String command = String.format(DUMP_COMMAND_TEMPLATE, filePath.txt.getPath(), filePath.hkx.getPath());
-
             if (Runtime.getRuntime().exec(command).waitFor() == 0) {
                 filePaths.add(filePath);
                 System.out.println(filePaths.get(filePaths.size() - 1).txt.getPath());
@@ -60,12 +63,12 @@ public abstract class FixManager {
     }
 
     /**
-     * 修复注解
+     * fix annos.
      */
-    public abstract void fixAnno();
+    public abstract void fixAnno() throws IOException;
 
     /**
-     * 将修复后的注解更新到HKX动作文件
+     * update fixed annos to txt files.
      */
     public void updateAnno() {
         for (FilePath file : filePaths) {
@@ -73,7 +76,6 @@ public abstract class FixManager {
                 File txt = file.txt;
                 File hkx = file.hkx;
                 String command = String.format(UPDATE_COMMAND_TEMPLATE, txt.getPath(), hkx.getPath());
-
                 if (Runtime.getRuntime().exec(command).waitFor() == 0) {
                     System.out.println(hkx.getPath() + " Process complete!");
                 }

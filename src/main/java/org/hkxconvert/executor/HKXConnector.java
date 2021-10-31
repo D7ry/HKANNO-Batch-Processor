@@ -10,6 +10,8 @@ import java.util.List;
 
 import static org.hkxconvert.Utils.addFrame;
 
+/** and annotation right after certain line.
+ */
 public class HKXConnector extends FixExecutor {
 
     public HKXConnector(File txt, RandomAccessFile reader) {

@@ -3,29 +3,56 @@ package org.hkxconvert.ListExecutor;
 import lombok.Data;
 import org.hkxconvert.FilePath;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 @Data
 public abstract class ListFixExecutor {
-    File _txt;
-    Scanner _reader;
-    boolean _notFix = true;
-    String _line;
-    String _temp = null;
-    long _tempPointer = 0;
-    int _tempSize = 0;
 
-    public ListFixExecutor(File txt, Scanner reader) {
-        this._txt = txt;
-        this._reader = reader;
+    /**the txt file to deal with */
+    File _txt;
+    /**self evident */
+    Scanner _reader;
+    /** after which line to add anno*/
+    String _line;
+    /**template of anno */
+    String _template;
+    /**temporary storage for lines in TXT*/
+    ArrayList<String> _lines;
+    boolean _fixed;
+
+    public ListFixExecutor(File txt, String line, String template) throws FileNotFoundException {
+        _txt = txt;
+        _reader = new Scanner(txt);
+        _line = line;
+        _template = template;
+        _lines = new ArrayList<String>();
+        _fixed = false;
+        System.out.println("");
+        System.out.println("start fixing: " + _txt.getName());
     }
 
     public abstract boolean fix(List<FilePath> filePaths) throws IOException;
+
+    /**write annotations in the list back to the txt*/
+    void writeAnno() throws FileNotFoundException {
+        PrintWriter pw = null;
+        try {
+            pw = new PrintWriter(_txt);
+            for (String line : _lines) {
+                pw.println(line);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (pw != null) {
+                pw.close();
+            }
+        }
+    }
+
 
 
 

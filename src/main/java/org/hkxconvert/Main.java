@@ -25,7 +25,7 @@ public class Main {
                 fixManager = new EnemyBrutalizer(root, filePaths);
                 break;
             } else if (option.equals("h")) {
-                fixManager = new HvyComboInitiater(root, filePaths);
+                fixManager = new EnemyBrutalizerHvy(root, filePaths);
                 break;
             } else if (option.equals("c")) {
                 fixManager = new HvyAttackLooper(root, filePaths);
@@ -38,7 +38,7 @@ public class Main {
             } else if (option.equals("help")) {
                 System.out.println("L for light attack combo");
                 System.out.println("H for heavy attack combo");
-                System.out.println("C for heavy attack looper");
+                System.out.println("C for heavy attack looper(incomplete)");
                 System.out.println("D to dump all annotations");
             }
         }

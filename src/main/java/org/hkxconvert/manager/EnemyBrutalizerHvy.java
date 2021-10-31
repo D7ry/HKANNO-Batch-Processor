@@ -12,9 +12,9 @@ import java.util.ListIterator;
 
 import static org.hkxconvert.Const.*;
 
-public class HvyComboInitiater extends FixManager {
+public class EnemyBrutalizerHvy extends FixManager {
 
-    public HvyComboInitiater(File root, List<FilePath> filePaths) {
+    public EnemyBrutalizerHvy(File root, List<FilePath> filePaths) {
         super(root, filePaths);
         System.out.println("start chaining Skysa light to heavy combos");
     }
@@ -26,9 +26,10 @@ public class HvyComboInitiater extends FixManager {
             File txt = li.next().txt;
             annoInserter fixer = new annoInserter(txt, SKYSA_ATTACKWINSTART, SKYSA_HVY_COMBO_ANNO);
             if (fixer.insertAfter()) {
-                li.remove();
+                System.out.println("successfully fixed:" + txt.getName());
             } else {
-                System.out.println("failed to fix " + txt.getName());
+                li.remove();
+                System.out.println("failed to fix:" + txt.getName());
             }
         }
     }

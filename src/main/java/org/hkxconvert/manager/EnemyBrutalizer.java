@@ -33,6 +33,7 @@ public class EnemyBrutalizer extends FixManager {
             if (fixer.insertAfter()) {
                 System.out.println("successfully fixed:" + txt.getName());
             } else {
+                li.remove();
                 System.out.println("failed to fix:" + txt.getName());
             }
         }

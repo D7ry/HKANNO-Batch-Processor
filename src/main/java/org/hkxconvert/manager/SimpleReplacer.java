@@ -18,6 +18,8 @@ public class SimpleReplacer extends FixManager {
         System.out.println("starting replacer");
     }
 
+
+
     @Override
     public void fixAnno() throws IOException {
         Scanner input = new Scanner(System.in);
@@ -43,5 +45,6 @@ public class SimpleReplacer extends FixManager {
             return;
         }
     }
+
 
 }

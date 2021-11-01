@@ -18,6 +18,7 @@ public class SimpleRemover extends FixManager {
         System.out.println("start removing anno");
     }
 
+
     @Override
     public void fixAnno() throws IOException {
         System.out.println("\ninput anno keyword to be removed:");
@@ -31,7 +32,6 @@ public class SimpleRemover extends FixManager {
                 if (fixer.remove()) {
                     System.out.println("successfully fixed:" + txt.getName());
                 } else {
-                    li.remove();
                     System.out.println("failed to fix:" + txt.getName());
                 }
             }
@@ -44,6 +44,5 @@ public class SimpleRemover extends FixManager {
             return;
         }
     }
-
 
 }

@@ -32,8 +32,9 @@ public abstract class FixManager {
     }
 
     public void RecDir(File root, List<FilePath> filePaths) {
-        if (root.listFiles() == null) {
-            System.exit(10);
+        if (root.listFiles().length == 0) {
+            System.out.println("Error: No animation found in /animation folder. Dump failed.");
+            return;
         }
         File[] fileList = root.listFiles();
         for (File file : fileList) {
@@ -42,10 +43,9 @@ public abstract class FixManager {
             } else if (file.isFile()) {
                 String fileName = file.getName();
                 if (fileName.toLowerCase().contains(".hkx")) {
-                    System.out.println("filename is:" + fileName);
-                    FilePath filePath = new FilePath(file, new File(file.getPath().split("\\.")[0] + ".txt")); //FIXME
-                    //System.out.println(filePath);
-                    System.out.println("filePath is:" + filePath);
+                    //System.out.println("filename is:" + fileName);
+                    FilePath filePath = new FilePath(file, new File(file.getPath().split("\\.")[0] + ".txt"));
+                    //System.out.println("filePath is:" + filePath);
                     createAnnoTextList(filePath, filePaths);
                 }
             }
@@ -55,12 +55,10 @@ public abstract class FixManager {
     void createAnnoTextList(FilePath filePath, List<FilePath> filePaths) {
         try {
             String command = String.format(DUMP_COMMAND, filePath.txt.getPath(), filePath.hkx.getPath());
-            System.out.println("using dump command: " + command);
-            //System.out.println(filePath.hkx.getPath());
-            //System.out.println(filePath.txt.getPath());
+            //System.out.println("using dump command: " + command);
             if (Runtime.getRuntime().exec(command).waitFor() == 0) {
                 filePaths.add(filePath);
-                System.out.println("anno dumped to: " + filePaths.get(filePaths.size() - 1).txt.getPath());
+                System.out.println("dumped: " + filePath.txt.getPath().split("\\.")[0] + ".txt");
             }
         } catch (IOException | InterruptedException e) {
             System.out.println(e.getMessage());
@@ -81,10 +79,10 @@ public abstract class FixManager {
             try {
                 File txt = file.txt;
                 File hkx = file.hkx;
-                System.out.println(txt);
-                System.out.println(hkx);
+                //System.out.println(txt);
+                //System.out.println(hkx);
                 String command = String.format(UPDATE_COMMAND, txt.getPath(), hkx.getPath());
-                System.out.println("successfully updated: " + hkx.getName());
+                System.out.println("updated: " + hkx.getName());
                 if (Runtime.getRuntime().exec(command).waitFor() == 0) {
                 }
             } catch (IOException | InterruptedException e) {
@@ -93,4 +91,5 @@ public abstract class FixManager {
         }
         System.out.println("update complete");
     }
+
 }

@@ -33,7 +33,7 @@ public class Main {
                 scanner.nextLine();
                 return;
             }
-            System.out.println("input your operation, input help for help");
+            System.out.println("input your operation, input help to show all available commands");
             FixManager fixManager;
             while (true) {
                 String option = input.next().toLowerCase(Locale.ROOT);
@@ -63,10 +63,10 @@ public class Main {
                     System.out.println("L for light attack combo chaining");
                     System.out.println("H for heavy attack combo chaining");
                     System.out.println("C for heavy attack looper(incomplete)");
-                    System.out.println("RM to remove all annotations");
-                    System.out.println("RP to replace all annotations");
-                    System.out.println("D to simply dump all annotations");
-                    System.out.println("U to simply update all annotations");
+                    System.out.println("RM to remove annotations by your choice");
+                    System.out.println("RP to replace annotations by your choice");
+                    System.out.println("D to dump all annotations for manual edit");
+                    System.out.println("U to update all animations with manually edited .txt dump");
                 }
             }
             fixManager.dumpAnno();

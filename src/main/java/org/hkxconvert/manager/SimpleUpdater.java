@@ -24,8 +24,7 @@ public class SimpleUpdater extends FixManager{
 
     @Override
     void createAnnoTextList(FilePath filePath, List<FilePath> filePaths) {
-            String command = String.format(filePath.txt.getPath(), filePath.hkx.getPath());
-                filePaths.add(filePath);
+        filePaths.add(filePath);
     }
 
 }

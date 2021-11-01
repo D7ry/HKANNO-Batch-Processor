@@ -82,7 +82,7 @@ public class Main {
         File hkanno64 = new File(hka64Str);
         hka64Str = hkanno64.toString();
         if (!hkanno64.exists()) {
-            System.out.println("Error: Hkanno64 not found in current directory, please make sure you have hkanno64.exe it in " + dir);
+            System.out.println("Error: Hkanno64 not found in current directory, please make sure you have hkanno64.exe in " + dir);
             return false;
         }
         DUMP_COMMAND = "cmd /c " + hka64Str + " dump -o \"%s\" \"%s\"";

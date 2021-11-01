@@ -35,12 +35,12 @@ public class annoInserterRemover extends ListFixExecutor {
     }
 
     /**read through the list and add lines at corresponding positions */
-    private void readerProcess(double frame, boolean insertAfter) {
+    private void inserterProcess(double frame, boolean insertAfter) {
         while (_reader.hasNextLine()) {
             String line = _reader.nextLine();
             _lines.add(line);
             if (line.contains(_line)) {
-                String prevFrame = line.split(" ")[0];
+                String prevFrame = getTime(line);
                 if (insertAfter) {
                     String newLine = String.format(_template, addFrame(prevFrame, frame));
                     _lines.add(newLine);
@@ -74,7 +74,7 @@ public class annoInserterRemover extends ListFixExecutor {
         while (_reader.hasNextLine()) {
             String line = _reader.nextLine();
             if (line.contains(_line)) {
-                String prevFrame = line.split(" ")[0];
+                String prevFrame = getTime(line);
                 String newLine = prevFrame + " " + newAnno;
                 _lines.add(newLine);
                 System.out.println("replaced: " + line);
@@ -109,7 +109,7 @@ public class annoInserterRemover extends ListFixExecutor {
     /** insert TEMPLATE after the _LINE by default frame.
      */
     public boolean insertAfter() throws IOException {
-        readerProcess(ONE_FRAME, true);
+        inserterProcess(ONE_FRAME, true);
         _reader.close();
         writeAnno();
         return _fixed;
@@ -118,7 +118,7 @@ public class annoInserterRemover extends ListFixExecutor {
     /** insert TEMPLATE FRAME after the _LINE
      */
     public boolean insertAfter(double frame) throws IOException {
-        readerProcess(frame, true);
+        inserterProcess(frame, true);
         _reader.close();
         writeAnno();
         return _fixed;
@@ -126,14 +126,14 @@ public class annoInserterRemover extends ListFixExecutor {
 
     /** insert TEMPLATE FRAME before the _LINE. */
     public boolean insertBefore() throws IOException {
-        readerProcess(ONE_FRAME, false);
+        inserterProcess(ONE_FRAME, false);
         _reader.close();
         writeAnno();
         return _fixed;
     }
     /**insert TEMPLATE before the _LINE by default frame. */
     public boolean insertBefore(double frame) throws IOException{
-        readerProcess(frame, false);
+        inserterProcess(frame, false);
         _reader.close();
         writeAnno();
         return _fixed;

@@ -52,6 +52,19 @@ public abstract class ListFixExecutor {
         }
     }
 
+    /**
+     * return timestamp of the specific anno line
+     */
+    public String getTime(String line) {
+        return line.split(" ")[0];
+    }
+    /**
+     * return text of specific anno line
+     */
+    public String getText(String line) {
+        return line.split(" ")[1];
+    }
+
 
 
 

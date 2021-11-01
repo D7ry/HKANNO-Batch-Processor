@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
-import static org.hkxconvert.Const.DUMP_COMMAND_TEMPLATE;
-import static org.hkxconvert.Const.UPDATE_COMMAND_TEMPLATE;
+import static org.hkxconvert.Main.DUMP_COMMAND;
+import static org.hkxconvert.Main.UPDATE_COMMAND;
 
 /** manager class used to dump and update anno.
  *
@@ -42,7 +42,10 @@ public abstract class FixManager {
             } else if (file.isFile()) {
                 String fileName = file.getName();
                 if (fileName.toLowerCase().contains(".hkx")) {
-                    FilePath filePath = new FilePath(file, new File(file.getPath().split("\\.")[0] + ".txt"));
+                    System.out.println("filename is:" + fileName);
+                    FilePath filePath = new FilePath(file, new File(file.getPath().split("\\.")[0] + ".txt")); //FIXME
+                    //System.out.println(filePath);
+                    System.out.println("filePath is:" + filePath);
                     createAnnoTextList(filePath, filePaths);
                 }
             }
@@ -51,7 +54,10 @@ public abstract class FixManager {
 
     void createAnnoTextList(FilePath filePath, List<FilePath> filePaths) {
         try {
-            String command = String.format(DUMP_COMMAND_TEMPLATE, filePath.txt.getPath(), filePath.hkx.getPath());
+            String command = String.format(DUMP_COMMAND, filePath.txt.getPath(), filePath.hkx.getPath());
+            System.out.println("using dump command: " + command);
+            //System.out.println(filePath.hkx.getPath());
+            //System.out.println(filePath.txt.getPath());
             if (Runtime.getRuntime().exec(command).waitFor() == 0) {
                 filePaths.add(filePath);
                 System.out.println("anno dumped to: " + filePaths.get(filePaths.size() - 1).txt.getPath());
@@ -75,7 +81,9 @@ public abstract class FixManager {
             try {
                 File txt = file.txt;
                 File hkx = file.hkx;
-                String command = String.format(UPDATE_COMMAND_TEMPLATE, txt.getPath(), hkx.getPath());
+                System.out.println(txt);
+                System.out.println(hkx);
+                String command = String.format(UPDATE_COMMAND, txt.getPath(), hkx.getPath());
                 System.out.println("successfully updated: " + hkx.getName());
                 if (Runtime.getRuntime().exec(command).waitFor() == 0) {
                 }

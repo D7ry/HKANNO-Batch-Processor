@@ -1,0 +1,26 @@
+# numOriginalFrames: 110
+# duration: 3.666667
+# numAnnotationTracks: 97
+# numAnnotations: 22
+0.250000 SkySA_TriggerIntervalWinLoop
+1.020000 preHitFrame
+1.000000 weaponswing
+1.023333 HitFrame
+1.123333 HitFrame
+2.503333 SoundPlay.WPNBlade1HandSheatheSD
+2.033333 SkySA_AttackLoop
+3.503333 SkySA_AttackWinEnd
+3.663667 attackStop
+0.198000 animmotion 0 0 0
+0.331000 animmotion 0 5.3 0
+0.495000 animmotion 0 12.4 0
+0.661000 animmotion 0 20.4 0
+0.825000 animmotion 0 30.4 0
+0.957000 animmotion 0 44.8 0
+1.089000 animmotion 0 103.3 0
+1.188000 animmotion 0 110.6 0
+2.079000 animmotion 0 110.6 0
+2.221000 animmotion 0 119.7 0
+2.343000 animmotion 0 137.3 0
+2.475000 animmotion 0 161 0
+2.607000 animmotion 0 178.1 0

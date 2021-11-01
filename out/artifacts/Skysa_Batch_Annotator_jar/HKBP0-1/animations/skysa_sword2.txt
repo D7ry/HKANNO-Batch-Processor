@@ -1,0 +1,25 @@
+# numOriginalFrames: 95
+# duration: 3.166667
+# numAnnotationTracks: 97
+# numAnnotations: 20
+0.250000 SkySA_TriggerIntervalWin
+0.400000 preHitFrame
+0.420000 SoundPlay.WPNSwingBladeMedium
+0.423333 HitFrame
+0.820000 SoundPlay.WPNSwingBladeMedium
+0.823333 HitFrame
+1.553333 SoundPlay.WPNBlade1HandSheatheSD
+1.053333 SkySA_AttackWinStart
+1.053334 atttackPowerStartForward
+3.053333 SkySA_AttackWinEnd
+3.165667 attackStop
+0.165000 animmotion 0 0 0
+0.264000 animmotion 0 4.1 0
+0.363000 animmotion 0 38.1 0
+0.528000 animmotion 0 78.4 0
+0.627000 animmotion 0 79.8 0
+0.792000 animmotion 0 105.9 0
+0.957000 animmotion 0 140.6 0
+2.475000 animmotion 0 140.6 0
+2.607000 animmotion 0 145.7 0
+2.871000 animmotion 0 158.4 0

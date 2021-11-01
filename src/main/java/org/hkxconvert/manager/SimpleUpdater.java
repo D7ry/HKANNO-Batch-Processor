@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static org.hkxconvert.Const.DUMP_COMMAND_TEMPLATE;
 
 public class SimpleUpdater extends FixManager{
 

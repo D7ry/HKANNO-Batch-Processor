@@ -3,6 +3,7 @@ convenience tool to batch edit hkx files.
 
 prerequisites:
 Java runtime Environment https://www.java.com/en/download/manual.jsp
+
 HKANNO64 https://www.nexusmods.com/skyrimspecialedition/mods/54244?tab=description
 
 How to use:

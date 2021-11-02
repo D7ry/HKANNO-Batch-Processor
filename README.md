@@ -12,7 +12,7 @@ How to use:
 
 2.put animations you want to edit into "animations" folder that comes with HKBP.
 
-3.make sure your file directory does not contain "."; This is due to how file names are parsed. For example, "D:\Skyrim Modding\HKBP.1.1" won't work, but "D:\Skyrim Modding\HKBP-1-1" will.
+3.make sure your file directory does not contain "." and " "(black space); This is due to how file names are parsed. For example, "D:\Skyrim Modding\HKBP.1.1" won't work, but "D:\Skyrim_Modding\HKBP-1-1" will.
 
 4.double-click HKBP.bat to run the program.
 

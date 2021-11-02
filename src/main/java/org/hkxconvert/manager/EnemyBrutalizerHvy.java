@@ -22,7 +22,7 @@ public class EnemyBrutalizerHvy extends FixManager {
         ListIterator<FilePath> li = getFilePaths().listIterator();
         while (li.hasNext()) {
             File txt = li.next().txt;
-            annoInserterRemover fixer = new annoInserterRemover(txt, SKYSA_ATTACKWINSTART, SKYSA_HVY_COMBO_ANNO);
+            annoInserterRemover fixer = new annoInserterRemover(txt, ATTACK_WIN_ANNO, HVY_COMBO_ANNO);
             if (fixer.insertAfter()) {
                 System.out.println("successfully fixed:" + txt.getName());
             } else {

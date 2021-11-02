@@ -10,7 +10,7 @@ import java.util.ListIterator;
 import java.util.Locale;
 import java.util.Scanner;
 
-import static org.hkxconvert.Const.SKYSA_COMBO_ANNO;
+import static org.hkxconvert.Const.COMBO_ANNO;
 
 public class SimpleReplacer extends FixManager {
     public SimpleReplacer(File root, List<FilePath> filePaths) {
@@ -30,7 +30,7 @@ public class SimpleReplacer extends FixManager {
         String newAnno = input.next();
         while (li.hasNext()) {
             File txt = li.next().txt;
-            annoInserterRemover fixer = new annoInserterRemover(txt, oldAnno, SKYSA_COMBO_ANNO);
+            annoInserterRemover fixer = new annoInserterRemover(txt, oldAnno, COMBO_ANNO);
             if (fixer.replace(newAnno)) {
                 System.out.println("successfully fixed:" + txt.getName());
             } else {

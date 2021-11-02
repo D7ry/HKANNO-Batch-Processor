@@ -46,5 +46,21 @@ public class SimpleReplacer extends FixManager {
         }
     }
 
+    public void batchFixAnno(String[] og, String[] rp) throws IOException {
+        ListIterator<FilePath> li = getFilePaths().listIterator();
+        while (li.hasNext()) {
+            File txt = li.next().txt;
+            for (int i = 0; i < og.length; i ++) {
+                annoInserterRemover fixer = new annoInserterRemover(txt, og[i], SKYSA_COMBO_ANNO);
+                if (fixer.replace(rp[i])) {
+                    System.out.println("successfully fixed:" + txt.getName());
+                } else {
+                    System.out.println("failed to fix:" + txt.getName());
+                }
+            }
+        }
+
+    }
+
 
 }

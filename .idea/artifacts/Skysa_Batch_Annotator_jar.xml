@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact name="Skysa-Batch-Annotator:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Skysa_Batch_Annotator_jar</output-path>
+    <output-path>D:/hkbp</output-path>
     <root id="root">
       <element id="archive" name="HKBP.jar">
         <element id="directory" name="META-INF">

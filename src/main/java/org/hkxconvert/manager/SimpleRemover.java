@@ -51,7 +51,7 @@ public class SimpleRemover extends FixManager {
         for (String kwd : args) {
             while (li.hasNext()) {
                 File txt = li.next().txt;
-                annoInserterRemover fixer = new annoInserterRemover(txt, kwd, SKYSA_COMBO_ANNO);
+                annoInserterRemover fixer = new annoInserterRemover(txt, kwd, COMBO_ANNO);
                 if (fixer.remove()) {
                     System.out.println("successfully fixed:" + txt.getName());
                 } else {

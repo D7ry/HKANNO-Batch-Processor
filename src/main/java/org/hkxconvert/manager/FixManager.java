@@ -21,13 +21,19 @@ import static org.hkxconvert.Main.UPDATE_COMMAND;
 public abstract class FixManager {
 
     public File root;
-    public List<FilePath> filePaths;
+    public List<FilePath> _filePaths;
+
+    /**returns THIS filepath* */
+    public List<FilePath> getFilePaths(){
+        return _filePaths;
+    }
+
     /**
      * 批量导出注解TXT文件
      */
     public void dumpAnno() {
         System.out.println("\ndumping annos");
-        RecDir(root, filePaths);
+        RecDir(root, _filePaths);
         System.out.println("dump complete");
     }
 
@@ -75,7 +81,7 @@ public abstract class FixManager {
      */
     public void updateAnno() throws IOException {
         System.out.println("\nupdating annos");
-        for (FilePath file : filePaths) {
+        for (FilePath file : _filePaths) {
             try {
                 File txt = file.txt;
                 File hkx = file.hkx;

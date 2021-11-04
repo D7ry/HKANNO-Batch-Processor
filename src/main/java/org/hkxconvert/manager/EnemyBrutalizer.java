@@ -32,4 +32,5 @@ public class EnemyBrutalizer extends FixManager {
             }
         }
     }
+
 }

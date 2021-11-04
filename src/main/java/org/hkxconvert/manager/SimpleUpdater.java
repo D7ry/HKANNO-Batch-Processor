@@ -15,7 +15,7 @@ public class SimpleUpdater extends FixManager{
 
     @Override
     public void dumpAnno() {
-        RecDir(root, filePaths);
+        RecDir(root, _filePaths);
     }
 
     @Override

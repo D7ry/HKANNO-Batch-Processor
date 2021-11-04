@@ -1,6 +1,7 @@
 package org.hkxconvert;
 
 import org.hkxconvert.manager.*;
+import sun.java2d.pipe.SpanShapeRenderer;
 
 import java.io.File;
 import java.io.IOException;
@@ -85,7 +86,11 @@ public class Main {
             } else if (option.equals("rp")) {
                 FixManager fixer = new SimpleReplacer(HKX_ROOT, _filePaths);
                 simpleFix(fixer);
-            } else if (option.equals("cn")) {
+            } else if (option.equals("rename")) {
+                SimpleRenamer renamer = new SimpleRenamer(HKX_ROOT, _filePaths);
+                simpleRename(renamer);
+            }
+            else if (option.equals("cn")) {
                 SimpleReplacer fixer = new SimpleReplacer(HKX_ROOT, _filePaths);
                 String[] og = {"SkySA_TriggerIntervalWinLoop", "SkySA_AttackLoop"};
                 String[] rp = {"SkySA_TriggerIntervalWin", "SkySA_AttackWinStart"};
@@ -110,6 +115,7 @@ public class Main {
                 System.out.println("U to update all animations with manually edited .txt dump");
                 System.out.println("cn to convert last normal attack to regular normal attack");
                 System.out.println("cl to convert normal attack to the last attack with loop annotation");
+                System.out.println("rename to initilize batch renamer");
             }
     }
 
@@ -120,6 +126,11 @@ public class Main {
         fixer.fixAnno();
         fixer.updateAnno();
     }
+
+    private static void simpleRename(SimpleRenamer renamer) {
+        renamer.rename();
+    }
+
 
     public static List<FilePath> _filePaths;
 

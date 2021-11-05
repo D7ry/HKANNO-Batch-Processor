@@ -37,11 +37,12 @@ public class SimpleRenamer extends SimpleUpdater{
         for (int i = 0; i < _arrFile.length; i++) {
             if (_arrFile[i].isFile()) {
                 String fileName = _arrFile[i].getName();
+                String fileNameLc = fileName.toLowerCase(Locale.ROOT);
                 String newFileName = null;
                 File thisFile = new File(_folderPathStr + "\\" + fileName);
-                if (fileName.toLowerCase(Locale.ROOT).contains("skysa")) {
+                if (fileNameLc.contains("skysa")) {
                     //start Skysa fixing Scheme
-                } else if ((fileName.contains("1hm") || fileName.contains("2hm") || fileName.contains("2hw")) && fileName.contains("hkx") ) {
+                } else if ((fileNameLc.contains("1hm") || fileNameLc.contains("2hm") || fileNameLc.contains("2hw")) && fileNameLc.contains("hkx") ) {
                     newFileName = type + fileName.substring(3);
                 }
                 thisFile.renameTo(new File(_folderPathStr + "\\" + newFileName));

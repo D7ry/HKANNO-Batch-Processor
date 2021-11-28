@@ -104,6 +104,9 @@ public class Main {
                 fixer.dumpAnno();
                 fixer.batchFixAnno(og, rp);
                 fixer.updateAnno();
+            } else if (option.equals("repetition")) {
+                FixManager fixer = new newRigFixer(HKX_ROOT, _filePaths);
+                simpleFix(fixer);
             }
             else if (option.equals("help")) {
                 System.out.println("L for light attack combo chaining");
@@ -116,6 +119,7 @@ public class Main {
                 System.out.println("cn to convert last normal attack to regular normal attack");
                 System.out.println("cl to convert normal attack to the last attack with loop annotation");
                 System.out.println("rename to initilize batch renamer");
+                System.out.println("repetition to remove repetitive AMR annos");
             }
     }
 

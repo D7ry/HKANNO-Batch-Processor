@@ -69,6 +69,29 @@ public class annoInserterRemover extends ListFixExecutor {
         }
     }
 
+    /** quick AMR bug fix. */
+    private void repetitionRemoverProcess() {
+        String prevPos = null;
+        while (_reader.hasNextLine()) {
+            String line = _reader.nextLine();
+            if (prevPos != null && line.contains("animmotion") && AMRannoSpliter(line).equals(prevPos)) {
+                System.out.println("redundant line: " + line);
+                _fixed = true;
+            } else {
+                _lines.add(line);
+                if (line.contains("animmotion")) {
+                    prevPos = AMRannoSpliter(line);
+                }
+            }
+        }
+    }
+
+    /**parse AMR anno into x y z */
+    private String AMRannoSpliter (String line) {
+        String[] spLine = line.split(" ");
+        return spLine[2] + " " + spLine[3] + " " + spLine[4];
+    }
+
     /**what actually happens in replacer */
     private void replacerProcess(String newAnno) {
         while (_reader.hasNextLine()) {
@@ -101,6 +124,16 @@ public class annoInserterRemover extends ListFixExecutor {
      */
     public boolean remove() throws FileNotFoundException {
         removerProcess();
+        _reader.close();
+        writeAnno();
+        return _fixed;
+    }
+
+    /**
+     * remove repetitve AMR annos.
+     */
+    public boolean removeRep() throws FileNotFoundException {
+        repetitionRemoverProcess();
         _reader.close();
         writeAnno();
         return _fixed;

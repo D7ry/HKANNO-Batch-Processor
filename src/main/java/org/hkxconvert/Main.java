@@ -19,6 +19,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
         File myDir = new File(Main.class.getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile();
+        System.out.println("current working directory: " + myDir.getPath());
         HKX_ROOT = new File(myDir + "/animations");
         if (!HKX_ROOT.exists()) {
             System.out.println("animations folder not found, creating new folder");

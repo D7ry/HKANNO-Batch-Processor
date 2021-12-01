@@ -71,18 +71,29 @@ public class annoInserterRemover extends ListFixExecutor {
 
     /** quick AMR bug fix. */
     private void repetitionRemoverProcess() {
+        ArrayList<String> repetitiveLines = new ArrayList<>();
         String prevPos = null;
         while (_reader.hasNextLine()) {
             String line = _reader.nextLine();
             if (prevPos != null && line.contains("animmotion") && AMRannoSpliter(line).equals(prevPos)) {
-                System.out.println("redundant line: " + line);
+                System.out.println("repetitive line: " + line);
+                repetitiveLines.add(line);
                 _fixed = true;
             } else {
+                if (!repetitiveLines.isEmpty()) {
+                    String pairAnno = repetitiveLines.get(repetitiveLines.size() - 1);
+                    _lines.add(pairAnno);
+                    System.out.println("pair anno appended: " + pairAnno);
+                }
                 _lines.add(line);
                 if (line.contains("animmotion")) {
                     prevPos = AMRannoSpliter(line);
                 }
+                repetitiveLines.clear();
             }
+        }
+        if (!repetitiveLines.isEmpty()) {
+            _lines.add(repetitiveLines.get(repetitiveLines.size() - 1));
         }
     }
 
